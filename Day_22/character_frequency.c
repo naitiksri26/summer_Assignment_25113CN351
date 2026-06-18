@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    int freq[256] = {0};
+    int i, len;
+
+    printf("Enter a string: ");
+    gets(str);
+
+    len = strlen(str);
+
+    for (i = 0; i < len; i++)
+        freq[(unsigned char)str[i]]++;
+
+    printf("Character frequencies:\n");
+    for (i = 0; i < 256; i++) {
+        if (freq[i] > 0 && i != ' ')
+            printf("'%c' : %d\n", i, freq[i]);
+    }
+
+    return 0;
+}
